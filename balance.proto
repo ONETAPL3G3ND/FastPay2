@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service BalanceService {
+    rpc GetBalance (BalanceRequest) returns (BalanceResponse);
+    rpc UpdateBalance (UpdateBalanceRequest) returns (UpdateBalanceResponse);
+}
+
+message BalanceRequest {
+    int32 user_id = 1;
+}
+
+message BalanceResponse {
+    int32 balance = 1;
+}
+
+message UpdateBalanceRequest {
+    int32 user_id = 1;
+    int32 new_balance = 2;
+}
+
+message UpdateBalanceResponse {
+    bool success = 1;
+}
